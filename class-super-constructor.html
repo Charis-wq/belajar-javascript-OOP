@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Super Constructor</title>
+</head>
+<body>
+    <script>
+        /*aebenarnya cuntructor inhertance hanyalah melakukan eksekusi constractor
+        lain dengan tujuan agar property di constructor lain 
+        bisa di tambahkan di instance object ini,dalam kasus ini jika kita ingin mencapai
+        hasil yang sama kita bisa menggunakan kata kunci super,di dalam construuctor
+        kata kunci super ini digunakan untuk memanggil constructor supeer class jika 
+        child class kita membuat constructor maka kita wajib memanggil parent constructor,
+        walaupun di parent tidak ada constructor.
+        */ 
+
+        class Employee{
+
+            constructor(firstName){ //super constructor (1)
+                this.firstName = firstName;
+            }
+            
+            sayHello(name){
+                console.info(`Hello ${name} my name is employee ${this.firstName}`);
+            }
+         }
+
+         class Manager extends Employee{
+
+
+            constructor(firstName, lastName){
+                super(firstName);//super constructor (2)
+                this.lastName = lastName;
+            }
+           
+            sayHello(name){
+                console.info(`Hello ${name} my name is manager ${this.firstName} ${this.lastName}`);
+            }
+         }
+
+         const abdul = new Employee('Abdul');
+         abdul.name = 'Abdul';
+         abdul.sayHello('Budi');
+
+
+         const charis = new Manager('Charis', 'Nugraha');
+         charis.name = 'Charis';
+         charis.sayHello('Budi');
+
+         console.info(abdul);
+         console.info(charis);
+    </script>
+</body>
+</html>
