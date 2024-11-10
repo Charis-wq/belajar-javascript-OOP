@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Inheritance</title>
+</head>
+<body>
+    <script>
+        /*kita bisa memamnggil constructor lain dengan begitu kita bisa mewarisi
+        semua property yang di buat di constructor lain,untuk mememanggilnya kita bisa 
+        menggunakan nama constructor.call(this.parameter)
+        */
+
+        function Employee(firstName){
+            this.firstName = firstName;
+            this.sayHello = function (name){
+                console.info(`Hello ${name},My Name Is ${this.firstName}`);
+            }
+        }
+
+        function Manager (firstname, lastName){
+            this.lastName = lastName;
+            Employee.call(this, firstname);
+        }
+
+        const abdul = new Manager('Abdul','Charis');
+        console.info(abdul);
+
+
+    </script>
+</body>
+</html>

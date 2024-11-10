@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype</title>
+</head>
+<body>
+    <script>
+        /*javascript sebelumnya di kenal dengan pemograman berbasis prototype
+        memamng membingungkan dengan konsep prototype di javascript
+        saya sendiri juga masih bungung hehe
+        */
+
+        /*prototype inherintance
+        saat kita membuat object dari constructor function,object tersebut di sebut 
+        instance,semua pproperty(baik itu value ataupu method) akan berada di dalam instance
+        objecnya,setiap kali membuat constructor function maka secara otomatis akan di buatkan 
+        prototypenya misalkan kita membuat constructor function Person maka akan ada 
+        person.prototypenya,saat kita membuat object instance secara otomatis object tersebut adalah 
+        sebuah turunan dari constructor.prototypenya,untuk mengakses prototype milik sebuah 
+        instance kita bisa menggunakan _proto_
+        */
+        {
+            function Person(firstName, lastName){ 
+               this.firstName = firstName;
+               this.lastName = lastName;
+               this.sayHello = function (names){
+                console.info(`Hello ${names} My Name Is ${this.firstName}`);
+               }
+
+            }          
+
+          const abdul = new Person('Abdul', 'Charis');
+          const budi = new Person('Budi', 'Nugraha');
+        
+
+
+
+          console.log(abdul);
+          console.log(budi);
+        }
+
+/*menambahkan property ke prototype
+property mirip object dimana kita bisa menambahakan property baik itu value ataupun method
+saat kita menambahkan property ke prototype secara otomatis semua object instance yang turunan
+dari prototype tersebut akan memiliki property lain
+*/
+
+{
+    function Person(firstName, lastName){ 
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.sayHello = function (names){
+                console.info(`Hello ${names} My Name Is ${this.firstName}`);
+            }
+
+        }
+         Person.prototype.sayBye = function (){
+            console.info('Good Bye');
+         }
+
+         Person.prototype.run = function (){
+            console.info(`${this.firstName} Is Running`);
+         }
+    
+
+
+          const abdul = new Person('Abdul', 'Charis');
+
+          const budi = new Person('Budi', 'Nugraha');
+
+          console.log(abdul);
+          console.log(budi);
+
+}
+
+/*cara kerja prototype inheritance
+bagaimana bisa property di prototype di akses dari object instance yaitu yang pertama akan di cek
+apakah object tersebut terdapat property tersebut atau tidak,jika tidak maka akan di cek di _proto_
+(property)nya,jika masih tidak ada akan di cek lagi di _proto_(prototype) yang lebih tinggi begitu 
+seterusnya sampai di akhir di object prototype
+*/ 
+{
+    function Person(firstName, lastName){ 
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.sayHello = function (names){
+                console.info(`Hello ${names} My Name Is ${this.firstName}`);
+            }
+
+        }
+         Person.prototype.sayBye = function (){
+            console.info('Good Bye');
+         }
+
+         Person.prototype.run = function (){
+            console.info(`${this.firstName} Is Running`);
+         }
+    
+
+
+          const abdul = new Person('Abdul', 'Charis');
+          abdul.sayBye = function(){
+            console.info('Sampai Jumpa');//ini akan di akses pertama karena inheritancenya lebih awal
+          }
+
+          const budi = new Person('Budi', 'Nugraha');
+
+          console.log(abdul);
+          console.log(budi);
+
+          abdul.sayBye();//ini akan di akses jika di atas abdul.sayBye tidak ada
+          abdul.run();
+        
+}       
+
+
+
+
+    </script>
+</body>
+</html>
