@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property di Class</title>
+</head>
+<body>
+    <script>
+
+        /*sama seperti di contractor function dalam class pun kita bisa menambahakan property
+        karena hasil akhirnya adalah sebuah object jadi menambahkan property di class bisa 
+        juga di lakukan di instance objectnnya.
+        */
+
+        class Person {
+            constructor (name){
+              this.name = name;
+            }
+        }
+
+        const abdul = new Person('Abdul');
+        
+        console.info(abdul);
+        console.info(abdul.name);
+
+    </script>
+</body>
+</html>

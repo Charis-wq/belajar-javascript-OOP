@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor di Class</title>
+</head>
+<body>
+    <script>
+        /*di class kita juga bisa menambahakan constructor,dimana dengan menggunakan
+        constructor kita juga bisa menambahkan parameter saat pertama kali membuat object
+        untuk membuat constructor di class kita bisa menggunakan kata kunci constractor.
+        */ 
+
+
+        class Person {
+            constructor (name){
+                //kode apapun disini
+                console.info(`Membuat Person ${name}`);
+            }
+        }
+
+        const abdul = new Person('Abdul');
+        console.info(abdul);
+    </script>
+</body>
+</html>
