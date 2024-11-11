@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Private Method</title>
+</head>
+<body>
+    <script>
+
+        /*sama seperti field,terdapat proposal juga untuk menambah fitur private method 
+        di EcmaScript dengan demikian,akses modifier private juga bisa di gunakan di method 
+        caranya sama dengan menambahkan tanda (#) diawal method maka secara otomatis method tersebut 
+        adalah private,tapi mungkin tidak semua browser bisa mendukung fitur ini.
+        */ 
+       
+        class Person {
+
+            say(name){
+                if(name){
+                    this.#sayWhiteName(name);
+
+                }else{
+                    this.#sayWhithoutName();
+
+                }
+
+            }
+            #sayWhiteName(name){
+                console.info(`Hello ${name}`);
+            }
+
+            #sayWhithoutName(){
+                console.info('Hello');
+            }
+        }
+
+        const abdul = new Person();
+        abdul.say('Abdul');
+       // abdul. #sayWhithoutName();//ini akan error
+
+        console.info(abdul);
+
+    </script>
+</body>
+</html>
