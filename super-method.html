@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Method</title>
+</head>
+<body>
+    <script>
+
+        /*selain digunakan untuk memamanggil constructor milik parent class,kata kunci super
+        juga bisa di gunakan untuk mengakses method parent class,caranya kita bisa menggunakan
+        (super) titik nama functionnya,dengan kata lain super sebenarnya adlah reference 
+        ke parent prototype mirip seperti _proto_
+        */ 
+
+
+        class Shape {
+            paint(){
+                console.info('Paint Shape');
+            }
+        }
+
+
+        class Circle extends Shape {
+            paint(){
+                super.paint();
+                    console.info('Paint Circle');
+                
+            }
+        }
+
+        const circle = new Circle();
+        circle.paint();
+        console.info(circle);
+
+    
+    </script>
+</body>
+
+</html>

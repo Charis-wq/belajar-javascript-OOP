@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Field</title>
+</head>
+<body>
+    <script>
+        /*class field biasanya saat kita ingin menambahkan field (property yang berisi value)
+        kita biasanya menambhakanya di constructor namun sekarang ada proposal di EcmaScript 
+        yang mengajukan pembuatan public class field di tempatkan di luar constructor selevel
+        dengan penempatan method,proposal ini brlum final, namun beberapa browser sudah mendukungnya.
+        */
+       /*public class field
+       dalam propasal teersebut juga di sebutkan bahwa EcmaScript akan mendukung access modifier
+       public dan private
+       public artinya bisa di akses di luar class dan private hanya bisa di akses di luar class
+       untuk membuat public class field kita bisa langsung buat nama field dengan valuenya selevel
+       dengan method
+       jika kita tidak memasukan value ke dalam field tersebut artinya field tersebut memiliki value 
+       undifened.
+       */
+
+       //public class field
+    { 
+        
+        class Custeomer {
+        firstName;
+        lastName;
+        balance = 0;
+
+       }
+
+    
+
+       const abdul = new Custeomer();
+       abdul.firstName = 'Abdul';
+       console.info(abdul);
+    }
+
+
+    //public class field dan constructor
+
+    { 
+        
+        class Custeomer {
+        firstName;
+        lastName;
+        balance = 0;
+
+        constructor (firstName, lastName){
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+       }
+
+    
+
+       const abdul = new Custeomer('Abdul', 'Charis');
+       abdul.firstName = 'Abdul';
+       console.info(abdul);
+    }
+        
+        
+    </script>
+</body>
+</html>

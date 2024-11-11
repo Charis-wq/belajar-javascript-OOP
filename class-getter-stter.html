@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Getter dan Setter </title>
+</head>
+<body>
+    <script>
+        /*class juga mendukung pembuatan getter dan stter,
+        perlu di ingat getter dan setter ini akan berda di prototype bukan di instance object.
+        */ 
+
+        class Person{
+            constructor (firstName, lastName){
+                this.firstName = firstName;
+                this.lastName = lastName;
+            }
+            get fullName(){
+            return `${this.firstName} ${this.lastName}`;
+        }
+
+        set fullName(value){
+            const result = value.split(' ');
+            this.firstName = result[0];
+            this.lastName = result [1];
+
+        }
+
+        }
+
+      
+
+        const abdul = new Person('Abdul','Charis');
+        console.info(abdul);
+        console.info(abdul.fullName);
+        
+        abdul.fullName = 'budi nugraha';
+        console.info(abdul);
+
+
+
+
+    </script>
+</body>
+</html>
