@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Throw Error</title>
+</head>
+<body>
+    <script>
+        /*saat membuat aplikasi sudah tentu kita tidak akan terhindar dari yang namanya error 
+        di javascript error merupakan sesuatu yang sudah setandar 
+        banyak sekali class error di java script namun semua class error di java script selalu berujung di
+        class error artinya class error adalah superclass untuk semua jenis error di javascript 
+        contoh class error yang terdapat di javascript syntax error, type error,evalerror dan lainnya
+        */  
+
+
+        /*Throw Error
+        saat kita membuat instance object dari class error tidak lantas menjadi error, kita perlu memberitahu program 
+        kita bahwa kita akan mentriger sebuah error terjadi atau istilahnya melempar error(throw error) untuk melempar error 
+        kita bisa gunakan kata kunci (throw) di ikuti dngan instance object errornya,jika terjadi error maka ototmatis 
+        kode program kita akan terhenti dan kita bisa melihat detail errornya di console di aplikasi browser kita.
+        */
+
+
+        class MathUtil {
+            static sum(...numbers){
+                if (numbers.length === 0 ){
+                    throw new Error('Total Parameter Harus Lebih Dari 0');
+                }
+                let total = 0;
+                for (const number of numbers) {
+                    total += number;
+                }
+                return total;
+            }
+        }
+
+        console.info(MathUtil.sum());
+        consol.info('Abdul');
+
+        const result = MathUtil.sum(1,1,1,1,1);
+        console.info(result);
+    </script>
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error kata kunci Finally</title>
+</head>
+<body>
+    <script>
+         /*kata kunci finally
+    kadang kita ingin melakukan sesuatu entah itu terjadi error maupun tidak 
+    dalam try catch kita bisa menambahkan blok finally
+    block finally akan selalu dieksekusi setelah try catch selesai,entah terjadi error 
+    atau tidak block finally akan selalu di eksekusi
+    */ 
+
+
+    
+        class MathUtil {
+            static sum(...numbers){
+                if (numbers.length === 0 ){
+                    throw new Error('Total Parameter Harus Lebih Dari 0');
+                }
+                let total = 0;
+                for (const number of numbers) {
+                    total += number;
+                }
+                return total;
+            }
+        }
+
+        try{
+            console.info(MathUtil.sum(1,1,1));
+            consol.info('Abdul');
+            console.info('Kode Block Try Akan Berhenti');
+        }catch (error){
+            console.error(`Tejadi Error : ${error.message}`);
+        } finally {
+            console.info('Kode Program Selesai');
+        }
+
+        console.info('Kode Pogram Tidak Akan Berhenti');
+
+        const result = MathUtil.sum(1,1,1,1,1);
+        console.info(result);
+
+    
+    </script>
+</body>
+</html>
