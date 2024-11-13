@@ -44,6 +44,33 @@
         const result = MathUtil.sum(1,1,1,1,1);
         console.info(result);
 
+
+        /*try finally
+        kata kunci finally juga bisa di gunakan tanpa perlu menggunakan catch
+        biasanya ini di gunakan dalam kasus tertentu
+        */
+       
+
+        class Counter{
+            #counter = 1;
+            
+            next(){
+                try{
+                    return this.#counter;
+                }finally{
+                    this.#counter++;
+                }
+            }
+        }
+
+
+        const counter = new Counter();
+        console.info(counter.new());
+        console.info(counter.new());
+        console.info(counter.new());
+        console.info(counter.new());
+        console.info(counter.new());
+    
     
     </script>
 </body>
